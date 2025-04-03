@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Awareness Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-enhancements.css">
+    <link rel="stylesheet" href="button-colors.css">
+    <link rel="stylesheet" href="chatbot-button-fix.css">
+    <link rel="stylesheet" href="forum-fixes.css">
+    <link rel="stylesheet" href="social-fixes.css">
+    <link rel="stylesheet" href="share-score-fix.css">
+</head>
+<body>
+    <div class="sidebar left-sidebar">
+
+        <button id="logoutButton">Logout</button>
+
+        <div class="ai-suggestions">
+            <button id="getSuggestion">💡 Get AI Business Idea</button>
+            <p id="suggestionText"></p>
+        </div>
+
+
+        <div class="chatbot">
+            <button id="voiceButton">🎤 Speak Your Answer</button>
+            <p id="chatbotResponse"></p>
+        </div>
+    </div>
+
+    <div class="main-game-container">
+        <h1 id="gameTitle">Gender Sensitivity & Awareness</h1>
+        <p id="gameDescription">Make choices, challenge stereotypes, and learn about gender equality.</p>
+
+        <button id="startGame">Start Game</button>
+
+        <div id="progressBarContainer">
+            <div id="progressBar"></div>
+        </div>
+
+        <!-- Character Selection -->
+        <div id="characterSelection" class="hidden">
+            <h2 id="characterSelectionTitle">Choose Your Character:</h2>
+            <button id="boyCharacter">👦 Boy</button>
+            <button id="girlCharacter">👧 Girl</button>
+            <button id="teacherCharacter">👩‍🏫 Teacher</button>
+            <button id="parentCharacter">👨‍👩‍👧 Parent</button>
+        </div>
+
+        <!-- Question Container -->
+        <div id="questionContainer" class="hidden">
+            <p id="questionText"></p>
+            <button id="optionA"></button>
+            <button id="optionB"></button>
+        </div>
+    </div>
+
+    <div class="sidebar right-sidebar">
+        <div id="multiplayerChallenge">
+            <h3>⚔️ Multiplayer Challenge</h3>
+            <button id="shareScore">📢 Share My Score</button>
+            <div id="leaderboard">
+                <h4>🏆 Live Leaderboard</h4>
+                <ul id="leaderboardList"></ul>
+            </div>
+
+        </div>
+
+        <div id="socialShare">
+            <h3>📢 Share Your Score</h3>
+            <button id="shareOnWhatsApp">📱 WhatsApp</button>
+            <button id="shareOnTwitter">🐦 Twitter</button>
+        </div>
+
+        <div id="forumContainer">
+            <h3>🗣️ Discuss Gender Awareness</h3>
+            <textarea id="forumMessage" placeholder="Share your thoughts..."></textarea>
+            <button id="postMessage">Post</button>
+            <div id="forumPosts"></div>
+        </div>
+    </div>
+
+    <!-- Game Tutorial Overlay -->
+    <div id="gameIntroScreen">
+        <div class="intro-content">
+            <h2>Welcome to EqualPlay 🎮</h2>
+            <p>Level up your Awareness!!</p>
+            <ul>
+                <li>🎭 Choose a character to play.</li>
+                <li>🧐 Answer scenario-based questions.</li>
+                <li>💡 Earn points by making progressive choices.</li>
+                <li>🏆 Compete on the leaderboard!</li>
+            </ul>
+            <button id="startTutorial">Got it! Start Game</button>
+        </div>
+    </div>
+
+    <!-- Achievement Badges Display -->
+    <div id="achievementPopup" class="hidden">
+        <p id="achievementText">🏅 Achievement Unlocked!</p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("click", function(event) {
+            if (event.target && event.target.id === "restartGame") {
+                location.reload();
+            }
+        });
+
+        document.getElementById("startTutorial").addEventListener("click", function() {
+            document.getElementById("gameIntroScreen").style.display = "none";
+        });
+
+        document.getElementById("shareScore").addEventListener("click", function () {
+            let totalPoints = localStorage.getItem("latestScore") || 0;
+            let message = `I scored ${totalPoints} points in the Gender Awareness Game! Can you beat my score? 🔥 Play now!`;
+            let whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, "_blank");
+        });
+
+        document.getElementById("shareOnWhatsApp").addEventListener("click", function() {
+            let score = localStorage.getItem("latestScore") || 0;
+            let message = `I scored ${score} points in the Gender Awareness Game! Play now!`;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, "_blank");
+        });
+
+        document.getElementById("shareOnTwitter").addEventListener("click", function() {
+            let score = localStorage.getItem("latestScore") || 0;
+            let message = `I scored ${score} points in the Gender Awareness Game! Can you beat me?`;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`, "_blank");
+        });
+
+        document.getElementById("postMessage").addEventListener("click", function() {
+            let message = document.getElementById("forumMessage").value;
+            if (!message.trim()) return;
+            let post = document.createElement("p");
+            post.innerText = "💬 " + message;
+            document.getElementById("forumPosts").prepend(post);
+            document.getElementById("forumMessage").value = "";
+        });
+
+        async function loadLeaderboard() {
+            try {
+                let response = await fetch("http://localhost:5000/api/responses/leaderboard");
+                let data = await response.json();
+                let leaderboardList = document.getElementById("leaderboardList");
+                leaderboardList.innerHTML = data
+                    .map((entry, index) => `<li>${index + 1}. ${entry.username} - ${entry.score} pts</li>`)
+                    .join("");
+            } catch (error) {
+                console.error("Error loading leaderboard:", error);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", loadLeaderboard);
+
+        function unlockAchievement(message) {
+            let popup = document.getElementById("achievementPopup");
+            document.getElementById("achievementText").innerText = message;
+            popup.classList.remove("hidden");
+            setTimeout(() => popup.classList.add("hidden"), 3000);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            let highScore = localStorage.getItem("highScore") || 0;
+            let totalPoints = parseInt(localStorage.getItem("latestScore")) || 0;
+
+            if (totalPoints >= 50) unlockAchievement("🎉 Gender Equality Champion!");
+            if (totalPoints >= 30) unlockAchievement("🏆 Social Awareness Advocate!");
+            if (totalPoints >= 10) unlockAchievement("⭐ Gender Sensitivity Starter!");
+        });
+    </script>
+    <!-- Add this right before the closing </body> tag in index.html -->
+<script src="fixes.js"></script>
+<script src="avatar-chatbot.js"></script>
+<link rel="stylesheet" href="career-styles.css">
+<script src="career-opportunities.js"></script>
+<script src="auth-guard.js"></script>
+<link rel="stylesheet" href="certificate-styles.css">
+<script src="certificate-generator.js"></script>
+<script src="certificate-handler.js"></script>
+<script src="mongo-certificate-integration.js"></script>
+
+
+<script>
+    document.getElementById("logoutButton").addEventListener("click", function() {
+        localStorage.removeItem("authToken");
+        window.location.href = "login.html";
+    });
+</script>
+
+</body>
+</html>

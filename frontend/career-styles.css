@@ -1,0 +1,105 @@
+/* career-styles.css */
+.career-section {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.career-section h3 {
+    color: #6e48aa;
+    margin-top: 0;
+    font-size: 1.2em;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.career-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.career-category {
+    flex: 1 1 calc(33% - 10px);
+    min-width: 100px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.career-category:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #f0e6ff;
+}
+
+.career-category h4 {
+    margin: 0 0 5px 0;
+    color: #6e48aa;
+}
+
+.career-category p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #666;
+}
+
+.career-results {
+    margin-top: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.career-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.career-item:hover {
+    background: #f5f0ff;
+}
+
+.career-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.career-item h4 {
+    margin: 0 0 5px 0;
+    color: #6e48aa;
+    font-size: 1em;
+}
+
+.career-item p {
+    margin: 0;
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* Scrollbar styling */
+.career-results::-webkit-scrollbar {
+    width: 5px;
+}
+
+.career-results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.career-results::-webkit-scrollbar-thumb {
+    background: #d0bfff;
+    border-radius: 10px;
+}
+
+.career-results::-webkit-scrollbar-thumb:hover {
+    background: #9f7aea;
+}
