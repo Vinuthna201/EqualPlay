@@ -134,3 +134,20 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+.env.*
+*.env
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS/Editor files
+.DS_Store
+.idea/
+.vscode/
