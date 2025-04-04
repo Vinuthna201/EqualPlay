@@ -1,0 +1,40 @@
+/* share-score-fix.css */
+/* Fixes the Share Your Score box styling without modifying original files */
+
+#socialShare {
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    padding: 20px !important;
+    margin-top: 20px !important;
+    border: none !important;
+  }
+  
+  #socialShare h3 {
+    color: #6e48aa !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  #shareOnWhatsApp, #shareOnTwitter {
+    background: linear-gradient(135deg, #6e48aa, #9f50ac) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 10px 15px !important;
+    margin: 5px 0 !important;
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  #shareOnWhatsApp:hover, #shareOnTwitter:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3) !important;
+  }
+  
+  #shareOnWhatsApp {
+    margin-bottom: 10px !important;
+  }

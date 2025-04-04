@@ -1,0 +1,15 @@
+/* chatbot-button-fix.css */
+/* Fixes the Ask button color consistency in chatbot */
+
+#askChatbot {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  #askChatbot:hover {
+    background: linear-gradient(135deg, #5d3a99, #8e489b) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3) !important;
+  }
