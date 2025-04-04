@@ -5,7 +5,7 @@ An interactive AI-powered web game that promotes gender sensitivity through real
 
 ## 🚀 Live Demo
 
- [Play the MVP on Vercel]([https://your-project-name.vercel.app](https://equal-play.vercel.app/))
+ https://equal-play.vercel.app/
 
 ## 💡 Features
 
