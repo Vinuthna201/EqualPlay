@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme-enhancements.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <h2>Signup</h2>
+    <form id="signupForm">
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        const response = await fetch("http://localhost:5000/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.json();
+        alert(result.message);
+        if (response.ok) {
+            window.location.href = "login.html";
+        }
+    });
+</script>
+
+</body>
+</html>

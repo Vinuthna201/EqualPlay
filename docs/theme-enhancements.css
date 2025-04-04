@@ -1,0 +1,284 @@
+/* theme-enhancements.css */
+/* Global Light Theme Enhancements */
+:root {
+    --primary-color: #6e48aa;
+    --secondary-color: #9f50ac;
+    --accent-color: #4776e6;
+    --light-bg: #f9f7fe;
+    --card-bg: #ffffff;
+    --text-color: #333344;
+    --text-light: #666677;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  }
+  
+  body {
+    background: var(--light-bg);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Auth Container Enhancements */
+  .auth-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2.5rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    border-top: 4px solid var(--primary-color);
+  }
+  
+  .auth-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .auth-container input {
+    background: rgba(245, 245, 245, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 15px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-container input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(110, 72, 170, 0.1);
+    outline: none;
+  }
+  
+  .auth-container button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  
+  .auth-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+  }
+  
+  .auth-container p {
+    color: var(--text-light);
+    margin-top: 1.5rem;
+  }
+  
+  .auth-container a {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  /* Main Game Container Enhancements */
+  .main-game-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin: 1rem auto;
+  }
+  
+  .game-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .game-description {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Button Enhancements */
+  button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+  }
+  
+  /* Sidebar Enhancements */
+  .sidebar {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  /* Progress Bar Enhancements */
+  #progressBarContainer {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    height: 12px;
+    margin: 1.5rem 0;
+  }
+  
+  #progressBar {
+    background: var(--gradient);
+    border-radius: 20px;
+    height: 100%;
+  }
+  
+  /* Character Selection Enhancements */
+  #characterSelection button {
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  
+  #characterSelection button::before {
+    margin-right: 8px;
+    font-size: 1.2rem;
+  }
+  
+  /* Question Container Enhancements */
+  #questionContainer {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  #questionText {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+  
+  /* Chatbot Enhancements */
+  .chatbot {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* AI Suggestions Enhancements */
+  .ai-suggestions {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+  }
+  
+  /* Leaderboard Enhancements */
+  .leaderboard-container {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: auto;
+      margin: 0.5rem;
+    }
+    
+    .main-game-container {
+      order: 1;
+      margin: 0.5rem;
+    }
+    
+    .left-sidebar, .right-sidebar {
+      order: 2;
+    }
+  }
+  
+  /* Floating Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .floating-message {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Smooth Transitions */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Add some decorative elements */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 10% 20%, rgba(110, 72, 170, 0.05) 0%, rgba(255, 255, 255, 0) 30%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Game Over Screen Enhancements */
+  #gameOverScreen {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+  }
+  
+  #gameOverScreen h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Intro Screen Enhancements */
+  #gameIntroScreen {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .intro-content {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    max-width: 600px;
+  }
+  
+  .intro-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Achievement Popup Enhancements */
+  #achievementPopup {
+    background: var(--gradient);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }

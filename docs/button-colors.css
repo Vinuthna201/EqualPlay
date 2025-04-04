@@ -1,0 +1,100 @@
+/* button-colors.css */
+/* Targets specific buttons without affecting other styles */
+
+/* Get AI Business Idea button */
+#getSuggestion {
+    background: linear-gradient(135deg, #6e48aa, #9f50ac);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  #getSuggestion:hover {
+    background: linear-gradient(135deg, #5d3a99, #8e489b);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(110, 72, 170, 0.3);
+  }
+  
+  /* Speak Your Answer button */
+  #voiceButton {
+    background: linear-gradient(135deg, #4776e6, #6e48aa);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  #voiceButton:hover {
+    background: linear-gradient(135deg, #3a65d1, #5d3a99);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+  }
+  
+  /* Chatbot Ask button */
+  #askChatbot {
+    background: linear-gradient(135deg, #4caf50, #4776e6);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  #askChatbot:hover {
+    background: linear-gradient(135deg, #3e9e44, #3a65d1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+  }
+  
+  /* Post button in Discuss Gender Awareness */
+  #postMessage {
+    background: linear-gradient(135deg, #9f50ac, #4776e6);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  #postMessage:hover {
+    background: linear-gradient(135deg, #8e489b, #3a65d1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(159, 80, 172, 0.3);
+  }
+  
+  /* Chatbot responses styling */
+  .chat-message.bot {
+    background: #f9f7fe;
+    color: #333344;
+    border-left: 4px solid #6e48aa;
+  }
+  
+  .chat-message.user {
+    background: linear-gradient(135deg, #6e48aa, #4776e6);
+    color: white;
+  }
+  
+  /* Chatbot input field */
+  #chatbotInput {
+    background: rgba(245, 245, 245, 0.8);
+    border: 1px solid rgba(110, 72, 170, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  #chatbotInput:focus {
+    border-color: #6e48aa;
+    box-shadow: 0 0 0 3px rgba(110, 72, 170, 0.1);
+    outline: none;
+  }
+  
+  /* Forum message input */
+  #forumMessage {
+    background: rgba(245, 245, 245, 0.8);
+    border: 1px solid rgba(110, 72, 170, 0.2);
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  #forumMessage:focus {
+    border-color: #6e48aa;
+    box-shadow: 0 0 0 3px rgba(110, 72, 170, 0.1);
+    outline: none;
+  }
