@@ -27,4 +27,3 @@ An interactive AI-powered web game that promotes gender sensitivity through real
 - **Speech Recognition:** Web Speech API
 - **Deployment:** Vercel
 
-> Built with ❤️ by Team HackNest
