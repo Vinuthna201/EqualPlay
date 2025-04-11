@@ -1,5 +1,6 @@
 # EqualPlay
-#  Gender Sensitivity & Awareness Game
+
+  Gender Sensitivity & Awareness Game
 
 An interactive AI-powered web game that promotes gender sensitivity through real-world scenarios, character-based storytelling, and personalized learning.
 
